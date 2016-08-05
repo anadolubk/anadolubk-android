@@ -11,9 +11,9 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.viewpager)
-    ViewPager viewPager;
+    protected ViewPager viewPager;
     @BindView(R.id.tabs)
-    TabLayout tabLayout;
+    protected TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

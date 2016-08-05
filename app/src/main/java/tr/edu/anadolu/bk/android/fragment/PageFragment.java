@@ -10,7 +10,7 @@ import android.widget.TextView;
 import tr.edu.anadolu.bk.android.R;
 
 public class PageFragment extends Fragment {
-    public static final String ARG_PAGE = "ARG_PAGE";
+    private static final String ARG_PAGE = "ARG_PAGE";
 
     private int page;
 
@@ -32,7 +32,7 @@ public class PageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
         TextView textView = (TextView) view;
-        textView.setText("Fragment #" + page);
+        textView.setText(String.format("Fragment #%s", page));
         return view;
     }
 }
