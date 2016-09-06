@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-
 import tr.edu.anadolu.bk.android.fragment.PageFragment;
 import tr.edu.anadolu.bk.android.viewmodel.ViewPagerModel;
 
@@ -32,4 +31,5 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return context.getString(ViewPagerModel.values()[position].getTitleResId());
     }
+
 }
