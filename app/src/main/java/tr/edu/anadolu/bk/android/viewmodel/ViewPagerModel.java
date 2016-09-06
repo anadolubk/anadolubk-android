@@ -3,7 +3,7 @@ package tr.edu.anadolu.bk.android.viewmodel;
 import tr.edu.anadolu.bk.android.R;
 
 public enum ViewPagerModel {
-    FIRST(R.string.first_tab),
+    FIRST(R.string.Duyurular),
     SECOND(R.string.second_tab),
     THIRD(R.string.third_tab);
 
