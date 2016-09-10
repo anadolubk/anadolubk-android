@@ -12,13 +12,22 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import tr.edu.anadolu.bk.android.AnnouncementAdapter;
 import tr.edu.anadolu.bk.android.R;
 import tr.edu.anadolu.bk.android.viewmodel.Announcement;
 
 public class PageFragment extends Fragment {
-    private static final String ARG_PAGE = "ARG_PAGE";
+
+    @BindView(R.id.recycler_view)
     protected RecyclerView recyclerView;
+
+    private Unbinder unbinder;
+
+    protected List<Announcement> announcementList = new ArrayList<>();
+    private static final String ARG_PAGE = "ARG_PAGE";
     AnnouncementAdapter anAdapter;
     private int page;
 
@@ -38,8 +47,9 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        anAdapter = new AnnouncementAdapter(prepareAnnouncementData(), getContext());
+        unbinder = ButterKnife.bind(this, view);
+
+        anAdapter = new AnnouncementAdapter();
         recyclerView.setVisibility(View.INVISIBLE);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -53,9 +63,8 @@ public class PageFragment extends Fragment {
         return view;
     }
 
-    private List<Announcement> prepareAnnouncementData() {
+    private void prepareAnnouncementData() {
 
-        List<Announcement> announcementList = new ArrayList<>();
         Announcement announcement = new Announcement("tittle: tittle", "genre & genre", R.drawable.deneme);
         announcementList.add(announcement);
 
@@ -65,6 +74,13 @@ public class PageFragment extends Fragment {
         announcement = new Announcement("tittle3: tittle", "genre3 & genre", R.drawable.images);
         announcementList.add(announcement);
 
-        return announcementList;
+        anAdapter.setList(announcementList);
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 }
