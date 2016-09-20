@@ -1,7 +1,6 @@
 package tr.edu.anadolu.bk.android;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,16 +23,13 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
                 .inflate(R.layout.announcement_list_row, parent, false);
         return new MyViewHolder(itemView);
     }
-
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Announcement announcement = announcementList.get(position);
         holder.title.setText(announcement.getTitle());
         holder.genre.setText(announcement.getGenre());
-        Log.v("TEST", announcement.getBackground() + ":");
         holder.imageView.setImageResource(announcement.getBackground());
     }
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.title)
         TextView title;
@@ -53,7 +49,6 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
     public void setList(List<Announcement> announcements) {
         this.announcementList = announcements;
     }
-
     @Override
     public int getItemCount() {
         return announcementList.size();

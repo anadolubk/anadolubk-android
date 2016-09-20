@@ -16,7 +16,6 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         this.context = context;
     }
-
     @Override
     public int getCount() {
         return ViewPagerModel.values().length;

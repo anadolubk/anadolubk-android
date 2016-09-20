@@ -61,7 +61,6 @@ public class PageFragment extends Fragment {
         prepareAnnouncementData();
         return view;
     }
-
     private void prepareAnnouncementData() {
 
         Announcement announcement = new Announcement("tittle: tittle", "genre & genre", R.drawable.deneme);
@@ -76,7 +75,6 @@ public class PageFragment extends Fragment {
         anAdapter.setList(announcementList);
 
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
