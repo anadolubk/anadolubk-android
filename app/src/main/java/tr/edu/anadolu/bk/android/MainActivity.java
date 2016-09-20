@@ -7,16 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public class MainActivity extends AppCompatActivity {
-    private Unbinder unbinder;
-
     @BindView(R.id.viewpager)
     protected ViewPager viewPager;
     @BindView(R.id.tabs)
     protected TabLayout tabLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         tabLayoutSet();
-        unbinder = ButterKnife.bind(this);
-
     }
 
     public void tabLayoutSet() {
@@ -33,11 +27,5 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(3);
         tabLayout.setupWithViewPager(viewPager);
 
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
     }
 }
