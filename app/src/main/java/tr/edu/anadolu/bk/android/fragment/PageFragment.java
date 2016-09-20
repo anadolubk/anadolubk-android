@@ -59,7 +59,6 @@ public class PageFragment extends Fragment {
             recyclerView.setVisibility(View.VISIBLE);
         }
         prepareAnnouncementData();
-
         return view;
     }
 
