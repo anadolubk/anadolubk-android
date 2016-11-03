@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tabs)
     protected TabLayout tabLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
