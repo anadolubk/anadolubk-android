@@ -1,7 +1,9 @@
 package tr.edu.anadolu.bk.android.fragment;
 
+import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +21,8 @@ import tr.edu.anadolu.bk.android.AnnouncementAdapter;
 import tr.edu.anadolu.bk.android.R;
 import tr.edu.anadolu.bk.android.viewmodel.Announcement;
 
-public class PageFragment extends Fragment {
+
+public class BlogFragment extends Fragment {
 
     @BindView(R.id.recycler_view)
     protected RecyclerView recyclerView;
@@ -31,19 +34,20 @@ public class PageFragment extends Fragment {
     AnnouncementAdapter anAdapter;
     private int page;
 
-    public static Fragment newInstance(int page) {
+    public static android.support.v4.app.Fragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         PageFragment fragment = new PageFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         page = getArguments().getInt(ARG_PAGE);
     }
-
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
@@ -54,13 +58,14 @@ public class PageFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        if (page == 1) {
+        if (page == 2) {
             recyclerView.setAdapter(anAdapter);
             recyclerView.setVisibility(View.VISIBLE);
         }
         prepareAnnouncementData();
         return view;
     }
+
     private void prepareAnnouncementData() {
 
         Announcement announcement = new Announcement("DevFest Eskişehir 2016", "genre & genre", R.drawable.deneme);
@@ -75,9 +80,11 @@ public class PageFragment extends Fragment {
         anAdapter.setList(announcementList);
 
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
     }
+
 }

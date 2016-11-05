@@ -1,16 +1,17 @@
 package tr.edu.anadolu.bk.android.viewmodel;
 
 /**
- * Created by alp on 15/08/16.
+ * Created by alp on 24/10/16.
  */
-public class Announcement {
+
+public class Blog {
     private String title, genre;
     private int background;
 
-    public Announcement() {
-    }
+    public  Blog(){
 
-    public Announcement(String title, String genre, int background) {
+    }
+    public Blog(String title, String genre, int background) {
         this.title = title;
         this.genre = genre;
         this.background = background;

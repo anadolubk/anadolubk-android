@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tabs)
     protected TabLayout tabLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         tabLayoutSet();
     }
-
     public void tabLayoutSet() {
         viewPager.setAdapter(new TabFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this));
         viewPager.setOffscreenPageLimit(3);

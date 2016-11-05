@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import tr.edu.anadolu.bk.android.fragment.BlogFragment;
 import tr.edu.anadolu.bk.android.fragment.PageFragment;
 import tr.edu.anadolu.bk.android.viewmodel.ViewPagerModel;
 
@@ -16,7 +17,6 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         this.context = context;
     }
-
     @Override
     public int getCount() {
         return ViewPagerModel.values().length;
@@ -24,12 +24,13 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance(position + 1);
+            return PageFragment.newInstance(position + 1);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         return context.getString(ViewPagerModel.values()[position].getTitleResId());
     }
+
 
 }
