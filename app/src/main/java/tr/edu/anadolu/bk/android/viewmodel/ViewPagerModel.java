@@ -4,7 +4,7 @@ import tr.edu.anadolu.bk.android.R;
 
 public enum ViewPagerModel {
     FIRST(R.string.announcement_tab),
-    SECOND(R.string.second_tab),
+    SECOND(R.string.second_tab_title),
     THIRD(R.string.third_tab);
 
     private int titleResId;

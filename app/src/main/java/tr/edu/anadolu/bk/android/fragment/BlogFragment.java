@@ -23,7 +23,6 @@ import tr.edu.anadolu.bk.android.viewmodel.Announcement;
 
 
 public class BlogFragment extends Fragment {
-
     @BindView(R.id.recycler_view)
     protected RecyclerView recyclerView;
 
@@ -34,20 +33,19 @@ public class BlogFragment extends Fragment {
     AnnouncementAdapter anAdapter;
     private int page;
 
-    public static android.support.v4.app.Fragment newInstance(int page) {
+        public static Fragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         PageFragment fragment = new PageFragment();
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         page = getArguments().getInt(ARG_PAGE);
     }
-    @RequiresApi(api = Build.VERSION_CODES.M)
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
@@ -65,7 +63,6 @@ public class BlogFragment extends Fragment {
         prepareAnnouncementData();
         return view;
     }
-
     private void prepareAnnouncementData() {
 
         Announcement announcement = new Announcement("DevFest Eskişehir 2016", "genre & genre", R.drawable.deneme);
@@ -79,12 +76,11 @@ public class BlogFragment extends Fragment {
 
         anAdapter.setList(announcementList);
 
-    }
 
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
     }
-
 }

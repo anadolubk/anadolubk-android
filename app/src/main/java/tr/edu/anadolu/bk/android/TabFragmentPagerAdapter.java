@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import tr.edu.anadolu.bk.android.fragment.BlogFragment;
 import tr.edu.anadolu.bk.android.fragment.PageFragment;
 import tr.edu.anadolu.bk.android.viewmodel.ViewPagerModel;
 

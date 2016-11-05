@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -13,30 +12,28 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import tr.edu.anadolu.bk.android.viewmodel.Announcement;
-import tr.edu.anadolu.bk.android.viewmodel.Blog;
 
-public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapter.MyViewHolder> {
-
+public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapter.AnnouncementViewHolder> {
     private List<Announcement> announcementList;
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public     AnnouncementViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.announcement_list_row, parent, false);
-        return new MyViewHolder(itemView);
+        return new AnnouncementViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(AnnouncementViewHolder holder, int position) {
         Announcement announcement = announcementList.get(position);
         holder.title.setText(announcement.getTitle());
         holder.genre.setText(announcement.getGenre());
-        holder.imageView.setImageResource(announcement.getBackground());
+        holder.background.setImageResource(announcement.getBackground());
 
 
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class AnnouncementViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.title)
         TextView title;
 
@@ -44,11 +41,11 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
         TextView genre;
 
         @BindView(R.id.background)
-        ImageView imageView;
+        ImageView background;
 
 
 
-        public MyViewHolder(View view) {
+        public AnnouncementViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
@@ -56,7 +53,7 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
 
     public void setList(List<Announcement> announcements) {
         this.announcementList = announcements;
-
+        notifyDataSetChanged();
     }
 
     @Override
