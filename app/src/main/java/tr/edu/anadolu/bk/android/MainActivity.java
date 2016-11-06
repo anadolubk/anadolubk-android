@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import tr.edu.anadolu.bk.android.fragment.AnnouncementFragment;
+import tr.edu.anadolu.bk.android.fragment.BlogFragment;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.viewpager)
@@ -20,12 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        tabLayoutSet();
-    }
-    public void tabLayoutSet() {
-        viewPager.setAdapter(new TabFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this));
-        viewPager.setOffscreenPageLimit(3);
+        setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
-
     }
+
+    private void setupViewPager(ViewPager viewPager) {
+        TabFragmentPagerAdapter adapter = new TabFragmentPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(AnnouncementFragment.newInstance(),getString(R.string.announcement_tab));
+        adapter.addFragment(BlogFragment.newInstance(),getString(R.string.blog_tab));
+        adapter.addFragment(BlogFragment.newInstance(),getString(R.string.club_tab));
+        viewPager.setAdapter(adapter);
+    }
+
 }

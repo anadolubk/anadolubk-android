@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AnadoluBK</string>
     <string name="announcement_tab">Duyurular</string>
-    <string name="second_tab_title">Blog</string>
-    <string name="third_tab">Kulüp</string>
+    <string name="blog_tab">Blog</string>
+    <string name="club_tab">Kulüp</string>
 </resources>
