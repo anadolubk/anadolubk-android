@@ -20,6 +20,8 @@ import tr.edu.anadolu.bk.android.R;
 import tr.edu.anadolu.bk.android.viewmodel.Announcement;
 
 
+
+
 public class BlogFragment extends Fragment {
     public static BlogFragment newInstance() {
         return new BlogFragment();

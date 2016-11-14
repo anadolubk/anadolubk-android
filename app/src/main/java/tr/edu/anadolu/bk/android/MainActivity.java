@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected ViewPager viewPager;
     @BindView(R.id.tabs)
     protected TabLayout tabLayout;
+    @BindView(R.id.toolbar)
+    protected Toolbar toolbar;
 
 
     @Override
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
     }
