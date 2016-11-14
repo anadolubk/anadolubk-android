@@ -5,31 +5,38 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-
-import tr.edu.anadolu.bk.android.fragment.PageFragment;
-import tr.edu.anadolu.bk.android.viewmodel.ViewPagerModel;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private Context context;
+    private final List<Fragment> mFragmentList = new ArrayList<>();
+    private final List<String> mFragmentTitleList = new ArrayList<>();
 
-    public TabFragmentPagerAdapter(FragmentManager fm, Context context) {
+    public TabFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.context = context;
     }
 
     @Override
     public int getCount() {
-        return ViewPagerModel.values().length;
+        return mFragmentList.size();
+
     }
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance(position + 1);
+        return mFragmentList.get(position);
+    }
+
+    public void addFragment(Fragment fragment, String title) {
+        mFragmentList.add(fragment);
+        mFragmentTitleList.add(title);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return context.getString(ViewPagerModel.values()[position].getTitleResId());
+        return mFragmentTitleList.get(position);
     }
+
+
 }

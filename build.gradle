@@ -10,6 +10,7 @@ ext {
             butterknife   : "8.2.1",
             supportVersion: "23.1.1",
             timber        : "4.1.2",
+            glide         : "3.7.0",
     ]
     versionMajor = 0
     versionMinor = 0
@@ -23,7 +24,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.android.tools.build:gradle:2.2.2'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
